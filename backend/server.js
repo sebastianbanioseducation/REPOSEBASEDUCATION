@@ -13,6 +13,7 @@ const pool = new Pool({
 });
 
 // ----------- START SESSION -----------
+app.get('/', (req, res) => res.send('Backend en línea'));
 app.post("/start", async (req, res) => {
   const sessionId = Date.now().toString();
 
@@ -54,7 +55,10 @@ app.post("/answer", async (req, res) => {
   res.json({
     correct: answer === "Control celular"
   });
-});
-
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log("Backend running"));
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+});
+
