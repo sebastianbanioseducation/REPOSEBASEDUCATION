@@ -16,6 +16,12 @@ const pool = new Pool({
 app.get('/', (req, res) => res.send('Backend en línea'));
 app.post("/start", async (req, res) => {
   const sessionId = Date.now().toString();
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
+app.get("/", (req, res) => {
+  res.send("API funcionando 🚀");
+});
 
   await pool.query(
     "INSERT INTO sessions (id) VALUES ($1)",
