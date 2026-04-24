@@ -3,6 +3,8 @@ import cors from "cors";
 import pkg from "pg";
 
 const { Pool } = pkg;
+app.get('/', (req, res) => { res.send('Backend en línea'); 
+})
 
 const app = express();
 app.use(cors());
