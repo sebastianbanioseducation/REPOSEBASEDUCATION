@@ -3,8 +3,6 @@ import cors from "cors";
 import pkg from "pg";
 
 const { Pool } = pkg;
-app.get('/', (req, res) => { res.send('Backend en línea'); 
-})
 
 const app = express();
 app.use(cors());
@@ -63,7 +61,7 @@ app.post("/answer", async (req, res) => {
   res.json({
     correct: answer === "Control celular"
   });
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log("Backend running"));
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
